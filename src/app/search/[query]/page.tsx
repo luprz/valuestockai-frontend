@@ -31,7 +31,7 @@ export default function SearchPage({
       <div className="flex justify-center">
         <div className="px-4 lg:px-6 py-6 grid lg:grid-cols-[1fr,380px] md:grid-cols-[1fr,340px] grid-cols-1 gap-4 lg:gap-6">
           <div className="space-y-4">
-            <AboutCompany />
+            <AboutCompany searchText={query} />
             <StockEvolution />
             <FairValueCalculation />
             <CompanyMetrics />

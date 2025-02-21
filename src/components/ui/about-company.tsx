@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 
 interface CompanyData {
-  name: string
-  description: string
+  companyName: string
+  bio: string
   symbol: string
   price: number
   logo: string
@@ -92,21 +92,20 @@ export function AboutCompany({ searchText }: AboutCompanyProps) {
   return (
     <div className="p-4 rounded-lg border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="flex items-start gap-4">
-        <div className="w-24 h-24 flex-shrink-0 rounded-lg border border-border/40 bg-muted flex items-center justify-center">
+        <div className="w-24 h-24 flex-shrink-0 rounded-lg border border-border/40 bg-white flex items-center justify-center">
           {companyData.logo ? (
-            <img src={companyData.logo} alt={`${companyData.name} logo`} className="w-16 h-16 object-contain" />
+            <img src={companyData.logo} alt={`${companyData.companyName} logo`} className="w-16 h-16 object-contain" />
           ) : (
             <span className="text-2xl font-semibold text-muted-foreground">Logo</span>
           )}
         </div>
-
         <div className="flex-1 min-w-0">
           <div className="flex items-baseline gap-2">
-            <h3 className="font-semibold text-lg">{companyData.name}</h3>
+            <h3 className="font-semibold text-lg">{companyData.companyName}</h3>
             <span className="text-sm text-muted-foreground">{companyData.symbol}</span>
           </div>
           <p className="text-sm text-muted-foreground mt-2 w-[60%]">
-            {companyData.description}
+            {companyData.bio}
           </p>
         </div>
 
