@@ -26,28 +26,28 @@ export default function SearchPage({
   const { query } = use(params)
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div>
       <Navbar />
-      <div className="flex-1 container mx-auto px-4 py-6 grid grid-cols-[1fr,400px] gap-6">
-        {/* Left side - Cards section */}
-        <div className="space-y-4">
-          <AboutCompany />
-          <StockEvolution />
-          <FairValueCalculation />
-          <CompanyMetrics />
-          <PERAnalysis />
-          <SectorAnalysis />
-          <CompetitiveAdvantages />
-          <RevenueEvolution />
-          <CostEvolution />
-          <DebtAnalysis />
-          <CompanyNews />
-          <InvestmentConclusion />
-        </div>
+      <div className="flex justify-center">
+        <div className="px-4 lg:px-6 py-6 grid lg:grid-cols-[1fr,380px] md:grid-cols-[1fr,340px] grid-cols-1 gap-4 lg:gap-6">
+          <div className="space-y-4">
+            <AboutCompany />
+            <StockEvolution />
+            <FairValueCalculation />
+            <CompanyMetrics />
+            <PERAnalysis />
+            <SectorAnalysis />
+            <CompetitiveAdvantages />
+            <RevenueEvolution />
+            <CostEvolution />
+            <DebtAnalysis />
+            <CompanyNews />
+            <InvestmentConclusion />
+          </div>
 
-        {/* Right side - Chat section */}
-        <div className="sticky top-4 h-[calc(100vh-2rem)] overflow-hidden">
-          <ChatBox query={query} />
+          <div className="sticky top-4 h-[calc(100vh-2rem)] overflow-hidden">
+            <ChatBox query={query} />
+          </div>
         </div>
       </div>
     </div>
