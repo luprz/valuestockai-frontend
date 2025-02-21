@@ -8,11 +8,34 @@ import { useRouter } from "next/navigation";
 export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
   const router = useRouter();
   const [query, setQuery] = useState(initialQuery);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && query.trim()) {
       e.preventDefault();
-      router.push(`/search/${encodeURIComponent(query.trim())}`);
+       try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/stock/search`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            searchText: query.trim()
+          })
+        });
+        
+        const data = await response.json();
+        if (data && data.symbol) {
+          router.push(`/search/${encodeURIComponent(data.symbol)}`);
+        } else {
+          setError('No se encontró ningún símbolo para esta búsqueda');
+        }
+      } catch (error) {
+        setError('Error al buscar la acción. Por favor, inténtelo de nuevo.');
+        console.error('Error searching for stock:', error);
+      }
+    } else {
+      setError(null);
     }
   };
 
@@ -30,6 +53,11 @@ export function SearchInput({ initialQuery = "" }: { initialQuery?: string }) {
         />
         <Search className="h-6 w-6 absolute right-4 top-1/2 -translate-y-1/2 text-[#FF5733]/70" />
       </div>
+      {error && (
+        <div className="px-4 py-2 text-sm text-red-500">
+          {error}
+        </div>
+      )}
     </Card>
   );
 }
