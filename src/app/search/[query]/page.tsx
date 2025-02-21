@@ -4,6 +4,16 @@ import { use } from 'react'
 import { Navbar } from '@/components/ui/navbar'
 import { ChatBox } from '@/components/ui/chat-box'
 import { AboutCompany } from '@/components/ui/about-company'
+import { StockEvolution } from '@/components/ui/stock-evolution'
+import { FairValueCalculation } from '@/components/ui/fair-value-calculation'
+import { CompanyMetrics } from '@/components/ui/company-metrics'
+import { RevenueEvolution } from '@/components/ui/revenue-evolution'
+import { CostEvolution } from '@/components/ui/cost-evolution'
+import { CompanyNews } from '@/components/ui/company-news'
+import { InvestmentConclusion } from '@/components/ui/investment-conclusion'
+import { PERAnalysis } from '@/components/ui/per-analysis'
+import { SectorAnalysis } from '@/components/ui/sector-analysis'
+import { DebtAnalysis } from '@/components/ui/debt-analysis'
 
 export default function SearchPage({
   params,
@@ -21,6 +31,16 @@ export default function SearchPage({
         {/* Left side - Cards section */}
         <div className="space-y-4">
           <AboutCompany />
+          <StockEvolution />
+          <FairValueCalculation />
+          <CompanyMetrics />
+          <PERAnalysis />
+          <SectorAnalysis />
+          <RevenueEvolution />
+          <CostEvolution />
+          <DebtAnalysis />
+          <CompanyNews />
+          <InvestmentConclusion />
         </div>
 
         {/* Right side - Chat section */}

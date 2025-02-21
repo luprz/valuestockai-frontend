@@ -8,7 +8,7 @@ interface AboutCompanyProps {
   logo?: string
 }
 
-export function AboutCompany({ companyName = "NVIDIA Corporation", companyInfo = "NVIDIA is a technology company based in Santa Clara, California. They are world leaders in artificial intelligence computing, specializing in GPUs, AI, and deep learning.", stockSymbol = "NVDA", stockPrice = 878.35, logo = "https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d@2x.png" }: AboutCompanyProps) {
+export function AboutCompany({ companyName = "NVIDIA Corporation", companyInfo = "NVIDIA is a technology company based in Santa Clara, California. They are world leaders in artificial intelligence computing, specializing in GPUs, AI, and deep learning.", stockSymbol = "NVDA", stockPrice = 98.35, logo = "https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d@2x.png" }: AboutCompanyProps) {
   return (
     <div className="p-4 rounded-lg border border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
       <div className="flex items-start gap-4">
