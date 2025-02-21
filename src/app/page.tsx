@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex items-center justify-center min-h-screen p-8 pb-20 sm:p-20">
       <main className="w-full max-w-3xl flex flex-col items-center gap-4">
-        <h1 className="text-6xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-[#FF5733]">ValueStockAI</h1>
+        <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-[#FF5733]">ValueStockAI</h1>
         <Card className="w-full p-0 overflow-hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-[0_8px_32px_-8px_rgba(236,72,153,0.25),0_8px_32px_-8px_rgba(255,87,51,0.25)]">
           <div className="relative">
             <input
