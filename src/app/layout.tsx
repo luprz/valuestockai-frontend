@@ -23,9 +23,6 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <footer className="fixed bottom-0 left-0 right-0 py-6 text-center text-sm text-muted-foreground border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <span className="font-medium">Developed by <a href="https://www.moonshot.partners/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors"><strong>Moonshot Partners</strong></a></span>
-        </footer>
       </body>
     </html>
   );
