@@ -1,8 +1,41 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { Card } from '@/components/ui/card'
 
 export function PERAnalysis() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-[1fr,300px] gap-4">
+        <Card className="p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="flex items-center justify-center h-[200px] flex-col">
+            <div className="h-16 w-32 bg-muted rounded animate-pulse mb-2" />
+            <div className="h-4 w-40 bg-muted rounded animate-pulse" />
+          </div>
+        </Card>
+
+        <Card className="p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="h-6 w-24 bg-muted rounded animate-pulse mb-2" />
+          <div className="space-y-2">
+            <div className="h-4 bg-muted rounded animate-pulse w-full" />
+            <div className="h-4 bg-muted rounded animate-pulse w-[95%]" />
+            <div className="h-4 bg-muted rounded animate-pulse w-[90%]" />
+          </div>
+        </Card>
+      </div>
+    )
+  }
+
   return (
     <div className="grid grid-cols-[1fr,300px] gap-4">
       <Card className="p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">

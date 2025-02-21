@@ -2,6 +2,7 @@
 
 import { Card } from '@/components/ui/card'
 import { Line } from 'react-chartjs-2'
+import { useEffect, useState } from 'react'
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,6 +27,16 @@ ChartJS.register(
 )
 
 export function StockEvolution() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 1800)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   const years = ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029']
   const historicalData = [100, 120, 110, 140]
   const projectedData = [140, 160, 180, 195, 205, 220]
@@ -37,7 +48,16 @@ export function StockEvolution() {
         label: 'Stock Price Evolution',
         data: [...historicalData, ...projectedData],
         borderColor: '#FF5733',
-        backgroundColor: 'rgba(255, 87, 51, 0.1)',
+        backgroundColor: function(context) {
+          const chart = context.chart;
+          const {ctx, chartArea} = chart;
+          if (!chartArea) return;
+          const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          gradient.addColorStop(0, 'rgba(255, 87, 51, 0)');
+          gradient.addColorStop(0.5, 'rgba(255, 87, 51, 0.1)');
+          gradient.addColorStop(1, 'rgba(236, 72, 153, 0.2)');
+          return gradient;
+        },
         fill: true,
         tension: 0.4,
         segment: {
@@ -71,6 +91,25 @@ export function StockEvolution() {
         }
       }
     }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-[1fr,300px] gap-4">
+        <Card className="p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="h-[300px] w-full animate-pulse bg-muted rounded-lg" />
+        </Card>
+        <Card className="p-4 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="h-4 w-24 bg-muted rounded animate-pulse mb-4" />
+          <div className="space-y-2">
+            <div className="h-3 bg-muted rounded animate-pulse" />
+            <div className="h-3 bg-muted rounded animate-pulse" />
+            <div className="h-3 bg-muted rounded animate-pulse" />
+            <div className="h-3 bg-muted rounded animate-pulse w-3/4" />
+          </div>
+        </Card>
+      </div>
+    )
   }
 
   return (

@@ -44,7 +44,9 @@ export default function SearchPage({
         </div>
 
         {/* Right side - Chat section */}
-        <ChatBox query={query} />
+        <div className="sticky top-4 h-[calc(100vh-2rem)] overflow-hidden">
+          <ChatBox query={query} />
+        </div>
       </div>
     </div>
   )
