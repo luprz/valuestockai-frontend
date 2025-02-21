@@ -48,7 +48,12 @@ export function StockEvolution() {
         label: 'Stock Price Evolution',
         data: [...historicalData, ...projectedData],
         borderColor: '#FF5733',
-        backgroundColor: function(context) {
+        backgroundColor: function(context: {
+          chart: {
+            ctx: CanvasRenderingContext2D;
+            chartArea: { bottom: number; top: number; } | undefined;
+          };
+        }) {
           const chart = context.chart;
           const {ctx, chartArea} = chart;
           if (!chartArea) return;

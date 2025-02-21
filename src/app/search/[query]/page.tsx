@@ -14,6 +14,7 @@ import { InvestmentConclusion } from '@/components/ui/investment-conclusion'
 import { PERAnalysis } from '@/components/ui/per-analysis'
 import { SectorAnalysis } from '@/components/ui/sector-analysis'
 import { DebtAnalysis } from '@/components/ui/debt-analysis'
+import { CompetitiveAdvantages } from '@/components/ui/competitive-advantages'
 
 export default function SearchPage({
   params,
@@ -36,6 +37,7 @@ export default function SearchPage({
           <CompanyMetrics />
           <PERAnalysis />
           <SectorAnalysis />
+          <CompetitiveAdvantages />
           <RevenueEvolution />
           <CostEvolution />
           <DebtAnalysis />
